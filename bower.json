@@ -1,0 +1,22 @@
+{
+  "name": "MyProject",
+  "description": "My Sample Project",
+  "main": "",
+  "authors": [
+    "leelorz6 <leelorz6@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jerrynai6/test_js_project",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4"
+  }
+}

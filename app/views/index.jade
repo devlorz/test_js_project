@@ -14,4 +14,12 @@ html
         a(href='/signup') Sign up
       div
         a(href='/login') Log in
+    div(ng-app='Hello' ng-controller='NameController', ng-strict-di)
+      div
+        label(for='yourName') Your name is
+        input(name='yourName', type='text', ng-model='yourName')
+      div
+        | {{ yourName | sayHello }}
+    script(type='text/javascript', src='/lib/angular/angular.min.js')
+    script(type='text/javascript', src='/application.js')
           
