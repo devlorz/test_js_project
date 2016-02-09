@@ -55,11 +55,13 @@ module.exports = function() {
 	// validator ใส่ต่อ bodyParser ทันที
 	app.use(validator());
 	// view
-	app.set('views','./app/views');
+	// app.set('views','./app/views');
+	app.set('views',['./app/views','./public']);
 	app.set('view engine','jade');
 	// route
-	require('../app/routes/index.routes')(app);
-	require('../app/routes/user.routes')(app);
+	require('../app/routes/index.server.routes')(app);
+	require('../app/routes/user.server.routes')(app);
+	require('../app/routes/partial.server.routes')(app);
 	// sass ต้องเอาไว้ก่อน express.static เพื่อคอมไพล์ก่อนส่ง response
 	app.use(sass({
 		src: './sass',
