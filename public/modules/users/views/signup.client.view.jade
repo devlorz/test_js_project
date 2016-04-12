@@ -1,5 +1,7 @@
 h2 Sign up
-form(name='signup', method='POST', action='signup', novalidate)
+//- form(name='signup', method='POST', action='signup', novalidate)
+form(name='signupForm', ng-controller='AuthController', 
+ng-submit='signup(signupForm.$valid)', novalidate)
   div
     label(for='username') Username
     input(name='username', type='text', placeholder='username', ng-model='user.username', ng-maxlength='10', required)
@@ -12,11 +14,16 @@ form(name='signup', method='POST', action='signup', novalidate)
   div
     label(for='email') Email
     input(name='email', type='email', placeholder='youremail@email.com', ng-model='user.email', required)
+    p(ng-show='signupForm.email.$touched && signupForm.email.$error.required') Email is required.
+    p(ng-show='signupForm.email.$dirty && signupForm.email.$error.email') Email is in wrong format.
   div
     label(for='password') Password
     input(name='password', type='password', placeholder='password', ng-model='password', ng-minlength='6')
   div
-    input(type='submit', value='Sign up')
+    //- input(type='submit', value='Sign up')
+    input(type='submit', value='Sign up', ng-disabled='signupForm.$invalid')
+    div(ng-show='error')
+        strong(ng-bind='error')
 div
   a(href='/oauth/facebook') Log in with Facebook
 div

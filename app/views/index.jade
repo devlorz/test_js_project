@@ -5,17 +5,18 @@ html
     link(href='/css/main.css', rel='stylesheet')
   body#mainApp
     //- div#mainApp(ng-controller='NameController',ng-strict-di)
-    if username
-      h2 Hello #{username}
-      div
-        form(name='logout', method='post', action='/logout')
-          input(type='submit', value='Log out')
-    else 
-      div
-        a(ui-sref='signup') Sign up
-      div
-        a(ui-sref='login') Log in
+    //- if username
+    //-   h2 Hello #{username}
+    //-   div
+    //-     form(name='logout', method='post', action='/logout')
+    //-       input(type='submit', value='Log out')
+    //- else 
+    //-   div
+    //-     a(ui-sref='signup') Sign up
+    //-   div
+    //-     a(ui-sref='login') Log in
       //- div#mainApp(ng-include="'/modules/hello/views/hello.client.view.jade'")
+    header(ng-include="'/modules/core/views/header.client.view.jade'")
     div(ui-view='')
     //- div#mainApp(ng-app='Hello' ng-controller='NameController', ng-strict-di)
     //-   div
@@ -31,6 +32,7 @@ html
     
     script(type='text/javascript', src='/modules/users/users.client.module.js')
     script(type='text/javascript', src='/modules/users/config/users.client.routes.js')
+    script(type='text/javascript', src='/modules/users/controllers/auth.client.controller.js')
     //- script(type='text/javascript', src='/modules/hello/hello.client.module.js')
     //- script(type='text/javascript', src='/modules/hello/config/hello.client.routes.js')
     //- script(type='text/javascript', src='/modules/hello/controllers/hello.client.controller.js')
